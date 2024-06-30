@@ -1,0 +1,86 @@
+.wrapper {
+  padding: var(--indent-big);
+
+  border-radius: var(--border-radius-normal);
+
+  background-color: var(--bg-light-color);
+  box-shadow: var(--box-shadow-normal);
+
+  transition: box-shadow var(--transition-normal);
+
+  max-width: calc(352px - var(--indent-big) - var(--indent-big));
+}
+
+.wrapper:hover {
+  box-shadow: var(--box-shadow-active);
+}
+
+.wrapper:hover .btn {
+  opacity: 1;
+}
+
+.title-and-btn {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--indent-big);
+}
+
+.title {
+  font-weight: 700;
+  font-size: var(--indent-medium);
+  line-height: var(--line-height-big);
+  color: var(--text-dark-color);
+
+  white-space: nowrap; /* из-за этого свойства размер карточек не уменьшается */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+
+  margin: 0;
+}
+
+.subtitle {
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.btn {
+  opacity: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  width: 16px;
+  height: 16px;
+
+  padding: 0;
+  margin-top: 2px;
+
+  transition: opacity var(--transition-normal);
+}
+
+.about-company {
+  display: flex;
+  flex-direction: column;
+  gap: var(--indent-small);
+
+  margin-top: var(--indent-medium);
+}
+
+.text {
+  font-weight: 500;
+  font-size: var(--text-size-small);
+  line-height: var(--line-height-medium);
+  color: var(--text-dark-color);
+
+  margin: 0;
+}
+
+.experience {
+  display: flex;
+  align-items: center;
+  gap: var(--indent-small);
+
+  margin-top: var(--indent-medium);
+}
