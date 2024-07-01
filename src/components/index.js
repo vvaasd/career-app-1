@@ -10,3 +10,5 @@ export { default as FilterItem } from '@/components/FilterItem/FilterItem.jsx';
 export { default as VacancyList } from '@/components/VacancyList/VacancyList.jsx';
 export { default as VacancyBlock } from '@/components/VacancyBlock/VacancyBlock.jsx';
 export { default as VacancyCard } from '@/components/VacancyCard/VacancyCard.jsx';
+
+export { default as Icon } from '@/components/Icon/Icon.jsx';

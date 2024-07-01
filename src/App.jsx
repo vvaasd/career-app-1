@@ -1,13 +1,13 @@
 import { Header, Main, Footer } from '@/components';
 
-const App = () => {
+export const App = () => {
   return (
-    <div className='content'>
+    <>
       <Header></Header>
-      <Main></Main>
-      <Footer />
-    </div>
+      <div className='container'>
+        <Main></Main>
+        <Footer />
+      </div>
+    </>
   );
 };
-
-export default App;

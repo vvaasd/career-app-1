@@ -1,19 +1,17 @@
-import cityItemImg from '@/assets/img/location.svg';
-import employmentStatusItemImg from '@/assets/img/briefcase.svg';
-import addictionalFiltersItemImg from '@/assets/img/filter.svg';
+import { ICON_NAMES } from '@/constants';
 import { FilterItem } from '@/components';
 import styles from './Filterlist.module.css';
 
 const Filterlist = () => {
   return (
     <ul className={styles['list']}>
-      <FilterItem type='input' imgSrc={cityItemImg}>
+      <FilterItem type='input' iconName={ICON_NAMES.location}>
         Город
       </FilterItem>
-      <FilterItem type='dropdown' imgSrc={employmentStatusItemImg}>
+      <FilterItem type='dropdown' iconName={ICON_NAMES.briefcase}>
         Тип занятости
       </FilterItem>
-      <FilterItem type='dropdown' imgSrc={addictionalFiltersItemImg}>
+      <FilterItem type='dropdown' iconName={ICON_NAMES.filter}>
         Дополнительные фильтры
       </FilterItem>
     </ul>

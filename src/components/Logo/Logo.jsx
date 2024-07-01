@@ -1,10 +1,11 @@
+import { ICON_NAMES } from '@/constants';
 import styles from './Logo.module.css';
-import logo from '@/assets/img/logo.svg';
+import { Icon } from '@/components';
 
 const Logo = () => {
   return (
     <a href='#' className={styles['link']}>
-      <img src={logo} alt='CareerApp' className={styles['logo']} />
+      <Icon name={ICON_NAMES.logo} className={styles['logo']} />
     </a>
   );
 };

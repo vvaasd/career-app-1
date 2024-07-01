@@ -1,4 +1,4 @@
-const formatSalaryRange = (min = null, max = null) => {
+export const formatSalaryRange = (min = null, max = null) => {
   if ((min || min === 0) && (max || max === 0)) {
     return `${min} - ${max} ₽`;
   } else if (min || min === 0) {
@@ -9,5 +9,3 @@ const formatSalaryRange = (min = null, max = null) => {
     return `Не указана`;
   }
 };
-
-export default formatSalaryRange;

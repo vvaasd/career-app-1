@@ -1,4 +1,4 @@
-const formatExperienceRange = (min = null, max = null) => {
+export const formatExperienceRange = (min = null, max = null) => {
   const addictMin = min === 1 ? ' года' : '';
   const addictMax = max === 1 ? ' года' : '';
 
@@ -12,5 +12,3 @@ const formatExperienceRange = (min = null, max = null) => {
     return `Без опыта`;
   }
 };
-
-export default formatExperienceRange;

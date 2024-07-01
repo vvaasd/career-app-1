@@ -1,14 +1,14 @@
 .wrapper {
-  padding: var(--indent-big);
-
+  position: relative;
+  cursor: pointer;
   border-radius: var(--border-radius-normal);
 
   background-color: var(--bg-light-color);
   box-shadow: var(--box-shadow-normal);
 
-  transition: box-shadow var(--transition-normal);
+  padding: var(--indent-big);
 
-  max-width: calc(352px - var(--indent-big) - var(--indent-big));
+  transition: box-shadow var(--transition-normal);
 }
 
 .wrapper:hover {
@@ -19,22 +19,16 @@
   opacity: 1;
 }
 
-.title-and-btn {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--indent-big);
-}
-
 .title {
   font-weight: 700;
   font-size: var(--indent-medium);
   line-height: var(--line-height-big);
   color: var(--text-dark-color);
 
-  white-space: nowrap; /* из-за этого свойства размер карточек не уменьшается */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 240px;
+  width: calc(100% - 32px - 16px);
 
   margin: 0;
 }
@@ -42,22 +36,6 @@
 .subtitle {
   font-weight: 500;
   margin-top: 4px;
-}
-
-.btn {
-  opacity: 0;
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-
-  width: 16px;
-  height: 16px;
-
-  padding: 0;
-  margin-top: 2px;
-
-  transition: opacity var(--transition-normal);
 }
 
 .about-company {
@@ -83,4 +61,33 @@
   gap: var(--indent-small);
 
   margin-top: var(--indent-medium);
+}
+
+.btn {
+  position: absolute;
+  top: calc(32px - 2px);
+  right: 32px;
+
+  width: 16px;
+  height: 16px;
+
+  opacity: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  padding: 0;
+  margin-top: 2px;
+
+  transition: opacity var(--transition-normal);
+}
+
+.btn:hover .hide-img > path {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+}
+
+.hide-img > path {
+  transition: all var(--transition-normal);
 }

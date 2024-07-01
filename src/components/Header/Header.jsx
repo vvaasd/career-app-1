@@ -2,21 +2,27 @@ import { clsx } from '@/utils';
 import { Logo } from '@/components';
 import styles from './Header.module.css';
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className={styles['wrapper']}>
       <header className={styles['header']}>
         <Logo />
-        <nav className={styles['nav-tabs']}>
-          <button
-            type='button'
-            className={clsx(styles['tab'], styles['tab--active'])}
-          >
-            Поиск вакансий
-          </button>
-          <button type='button' className={styles['tab']}>
-            Избранные вакансии
-          </button>
+        <nav className={styles['nav']}>
+          <ul className={styles['nav-tabs']}>
+            <li className={styles['nav-tab']}>
+              <button
+                type='button'
+                className={clsx(styles['tab-btn'], styles['tab-btn--active'])}
+              >
+                Поиск вакансий
+              </button>
+            </li>
+            <li className={styles['nav-tab']}>
+              <button type='button' className={styles['tab-btn']}>
+                Избранные вакансии
+              </button>
+            </li>
+          </ul>
         </nav>
       </header>
     </div>
