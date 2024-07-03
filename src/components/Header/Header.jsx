@@ -12,7 +12,7 @@ export const Header = () => {
             <li className={styles['nav-tab']}>
               <button
                 type='button'
-                className={clsx(styles['tab-btn'], styles['tab-btn--active'])}
+                className={clsx(styles['tab-btn'], styles['active'])}
               >
                 Поиск вакансий
               </button>

@@ -3,9 +3,9 @@ import { Header, Main, Footer } from '@/components';
 export const App = () => {
   return (
     <>
-      <Header></Header>
+      <Header />
       <div className='container'>
-        <Main></Main>
+        <Main />
         <Footer />
       </div>
     </>

@@ -4,10 +4,14 @@ import styles from './VacancyList.module.css';
 
 const VacancyList = () => {
   return (
-    <VacancyBlock
-      dateText='Сегодня, 5 февраля'
-      vacancies={mockVacancyBlockData}
-    />
+    <ul className={styles['list']}>
+      <li className={styles['element']}>
+        <VacancyBlock
+          dateText='Сегодня, 5 февраля'
+          vacancies={mockVacancyBlockData}
+        />
+      </li>
+    </ul>
   );
 };
 

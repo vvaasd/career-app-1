@@ -9,3 +9,7 @@
   padding-top: 48px;
   padding-bottom: 32px;
 }
+
+.element {
+  list-style: none;
+}

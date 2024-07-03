@@ -4,7 +4,7 @@ import styles from './FilterItem.module.css';
 
 const FilterItem = ({ type, iconName, children }) => {
   return (
-    <li className={styles['wrapper']}>
+    <div className={styles['wrapper']}>
       <button type='button' className={styles['btn']}>
         <div className={styles['img-and-text']}>
           <Icon name={iconName} className={styles['img']} />
@@ -17,7 +17,7 @@ const FilterItem = ({ type, iconName, children }) => {
           />
         )}
       </button>
-    </li>
+    </div>
   );
 };
 

@@ -5,9 +5,11 @@ import styles from './Filterlist.module.css';
 const Filterlist = () => {
   return (
     <ul className={styles['list']}>
-      <FilterItem type='input' iconName={ICON_NAMES.location}>
-        Город
-      </FilterItem>
+      <li className={styles['element']}>
+        <FilterItem type='input' iconName={ICON_NAMES.location}>
+          Город
+        </FilterItem>
+      </li>
       <FilterItem type='dropdown' iconName={ICON_NAMES.briefcase}>
         Тип занятости
       </FilterItem>

@@ -52,6 +52,10 @@
   line-height: var(--line-height-medium);
   color: var(--text-dark-color);
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   margin: 0;
 }
 

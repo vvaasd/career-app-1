@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 1;
 
   width: 100%;
 
@@ -50,10 +51,10 @@
   padding: 0;
 }
 
-.tab-btn:not(.tab--active):hover {
+.tab-btn:not(.active):hover {
   color: var(--accent-color-light);
 }
 
-.tab-btn--active {
+.active {
   color: var(--accent-color);
 }
