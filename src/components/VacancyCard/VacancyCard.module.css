@@ -1,0 +1,83 @@
+.vacancy-card {
+  border-radius: 16px;
+  padding: 32px;
+  width: 352px;
+  height: 204px;
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.03);
+  background: #f9f9f9;
+  display: grid;
+  row-gap: 16px;
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+}
+
+.vacancy-card__hide {
+  visibility: hidden;
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  transition: .2s;
+}
+
+.vacancy-card:hover {
+  box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.08);
+  transition: .2s;
+}
+
+.vacancy-card:hover .vacancy-card__hide {
+  visibility: visible;
+}
+
+.vacancy-card__title {
+  display: grid;
+  row-gap: 4px;
+}
+
+.vacancy-card__title h2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #202020;
+  max-width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vacancy-card__title p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #202020;
+}
+
+.vacancy-card__info {
+  display: grid;
+  row-gap: 16px;
+}
+
+.info__company-location {
+  display: grid;
+  row-gap: 6px;
+}
+
+.info__company-location p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #202020;
+}
+
+.info__experience {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.info__experience p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #202020;
+}

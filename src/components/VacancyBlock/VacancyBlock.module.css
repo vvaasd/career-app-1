@@ -1,0 +1,17 @@
+.vacancy-block {
+  display: grid;
+  row-gap: 32px;
+}
+
+.vacancy-block__data h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 133%;
+  color: #202020;
+}
+
+.vacancy-block__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}

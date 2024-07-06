@@ -1,0 +1,23 @@
+footer {
+  background-color: #f6f6f6;
+}
+
+.footer__wrapper {
+  padding: 32px 80px;
+}
+
+.footer__wrapper p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  color: #747474;
+}
+
+.footer__wrapper a {
+  line-height: 114%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  font-weight: 500;
+  font-size: 14px;
+  color: #747474;
+}

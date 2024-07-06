@@ -1,0 +1,30 @@
+.filter-item {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 16px;
+  padding: 16px 24px;
+  width: 352px;
+  height: 48px;
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.03);
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.filter-item:hover {
+  box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.08);
+}
+
+.filter-item__wrapper {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+}
+
+.filter-item__wrapper span {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 133%;
+  color: #747474;
+}
