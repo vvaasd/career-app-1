@@ -1,0 +1,42 @@
+.filter-list-wrapper {
+  padding: 48px 40px 32px 40px;
+}
+
+.filter-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.reset-btn-wrapper {
+  display: flex;
+  justify-content: right;
+  margin-top: 16px;
+}
+
+.reset-btn {
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 133%;
+  color: #5c89ce;
+  background: none;
+  transition: 0.2s;
+}
+
+.reset-btn:hover {
+  color: #8caee0;
+}
+
+.button-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-block: 8px 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

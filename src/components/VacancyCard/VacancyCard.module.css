@@ -1,32 +1,34 @@
 .vacancy-card {
   border-radius: 16px;
   padding: 32px;
-  width: 352px;
+  max-width: 352px;
   height: 204px;
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.03);
   background: #f9f9f9;
   display: grid;
   row-gap: 16px;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
   position: relative;
 }
 
 .vacancy-card__hide {
   visibility: hidden;
+  opacity: 0;
   position: absolute;
   top: 32px;
   right: 32px;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .vacancy-card:hover {
   box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.08);
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .vacancy-card:hover .vacancy-card__hide {
   visibility: visible;
+  opacity: 1;
 }
 
 .vacancy-card__title {

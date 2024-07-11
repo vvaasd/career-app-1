@@ -1,6 +1,7 @@
 .vacancy-block {
   display: grid;
   row-gap: 32px;
+  padding-block: 32px;
 }
 
 .vacancy-block__data h1 {
@@ -11,7 +12,7 @@
 }
 
 .vacancy-block__cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
 }

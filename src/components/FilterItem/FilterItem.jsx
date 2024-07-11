@@ -1,32 +1,49 @@
-import classes from "./FilterItem.module.css";
-import location from "../../images/location.svg";
-import filter from "../../images/filter.svg";
-import briefcase from "../../images/briefcase.svg";
-import chevron from "../../images/chevron.svg";
+import { useRef, useState } from 'react';
+import useClickOutside from '../../hooks/useClickOutside';
+import Icon from '../Icon/Icon';
+import Dropdown from '../Dropdown/Dropdown';
+import classes from './FilterItem.module.css';
 
-export default function FilterItem({ item }) {
+export default function FilterItem({
+  iconName,
+  title,
+  type = 'unnested',
+  children,
+}) {
+  const [isOpened, setIsOpened] = useState(false);
+  const filterItemRef = useRef(null);
+
+  if (type === 'unnested') {
+    useClickOutside(filterItemRef, () => {
+      setIsOpened(false);
+    });
+  }
+
   return (
-    <>
-      <button className={classes["filter-item"]}>
-        <div className={classes["filter-item__wrapper"]}>
-          <img src={location} alt="location" />
-          <span>Город</span>
+    <div ref={filterItemRef} className={classes['wrapper']}>
+      <button
+        className={`${classes['filter-btn']} ${
+          type === 'nested' && classes['nested']
+        } ${isOpened && classes['opened']}`}
+        onClick={() => {
+          setIsOpened((prev) => !prev);
+        }}
+      >
+        <div className={classes['icon-and-text']}>
+          <Icon name={iconName} className={classes['icon']} />
+          <div className={`${classes['text']}`}>{title}</div>
         </div>
+        <Icon
+          name="arrowToRight"
+          className={`${classes['arrow-icon']} ${
+            isOpened && classes['rotated']
+          }`}
+        />
       </button>
-      <button className={classes["filter-item"]}>
-        <div className={classes["filter-item__wrapper"]}>
-          <img src={briefcase} alt="briefcase" />
-          <span>Тип занятости</span>
-        </div>
-        <img src={chevron} alt="chevron" />
-      </button>
-      <button className={classes["filter-item"]}>
-        <div className={classes["filter-item__wrapper"]}>
-          <img src={filter} alt="filter" />
-          <span>Дополнительные фильтры</span>
-        </div>
-        <img src={chevron} alt="chevron" />
-      </button>
-    </>
+
+      <Dropdown isOpened={isOpened} type={type}>
+        {children}
+      </Dropdown>
+    </div>
   );
 }

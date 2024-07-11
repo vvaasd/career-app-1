@@ -1,6 +1,5 @@
-import classes from "./VacancyCard.module.css";
-import experience from "../../images/experience.svg";
-import hide from "../../images/hide.svg";
+import classes from './VacancyCard.module.css';
+import Icon from '../Icon/Icon';
 
 export default function VacancyCard({
   id,
@@ -11,24 +10,24 @@ export default function VacancyCard({
   experienceWork,
 }) {
   return (
-    <li className={classes["vacancy-card"]}>
-      <div className={classes["vacancy-card__hide"]}>
-        <img src={hide} alt="hide" />
+    <li className={classes['vacancy-card']}>
+      <div className={classes['vacancy-card__hide']}>
+        <Icon name="hide" />
       </div>
-      <div className={classes["vacancy-card__title"]}>
+      <div className={classes['vacancy-card__title']}>
         <h2>{title}</h2>
         <p>{salary}</p>
       </div>
-      <div className={classes["vacancy-card__info"]}>
-        <div className={classes["info__company-location"]}>
+      <div className={classes['vacancy-card__info']}>
+        <div className={classes['info__company-location']}>
           <p>{company}</p>
           <p>{location}</p>
         </div>
-        <div className={classes["info__experience"]}>
-          <img src={experience} alt="experience" />
+        <div className={classes['info__experience']}>
+          <Icon name="experience" />
           <p>{experienceWork}</p>
         </div>
       </div>
-    </li >
+    </li>
   );
 }

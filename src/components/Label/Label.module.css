@@ -1,0 +1,80 @@
+.label {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #202020;
+  cursor: pointer;
+
+  padding: 8px 24px;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
+
+.input:checked + .input-mark {
+  border-color: #5c89ce;
+}
+
+.input:checked + .input-mark::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.input:checked + .input-mark {
+  border-color: #5c89ce;
+}
+
+.input:checked + .input-mark::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.input-mark {
+  position: relative;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  vertical-align: sub;
+
+  border: 1.5px solid #c5c5c5;
+  margin: 0;
+  margin-right: 16px;
+  transition: 0.2s;
+}
+
+.checkbox {
+  border-radius: 4px;
+}
+
+.radio {
+  border-radius: 50%;
+}
+
+.input-mark::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s;
+}
+
+.checkbox::before {
+  width: 8px;
+  height: 6px;
+
+  background-image: url('../../images/check.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.radio::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #5c89ce;
+}

@@ -1,6 +1,6 @@
 header {
   width: 100%;
-  padding: 24px 80px;
+  padding: 24px 40px;
   background-color: #fff;
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.03);
   position: sticky;
@@ -11,6 +11,8 @@ header {
 .header__wrapper {
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  max-width: calc(1280px - 160px);
 }
 
 .logo-wrapper {
@@ -19,10 +21,7 @@ header {
 }
 
 .menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  padding-left: clamp(8.125rem, -14.375rem + 35.16vw, 13.75rem);
 }
 
 .menu-list {
@@ -39,12 +38,12 @@ header {
   cursor: pointer;
 }
 
-.menu-item:hover {
-    color: #5c89ce;
-    opacity: 0.6;
-    transition: .2s;
+.menu-item:not(.active):hover {
+  color: #5c89ce;
+  opacity: 0.6;
+  transition: 0.2s;
 }
 
 .active {
-    color: #5c89ce;
+  color: #5c89ce;
 }
