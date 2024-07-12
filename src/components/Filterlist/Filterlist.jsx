@@ -4,39 +4,32 @@ import FilterItem from '../FilterItem/FilterItem';
 import Label from '../Label/Label';
 import classes from './Filterlist.module.css';
 
-const renderFilterItem = (filterItemData, type = 'unnested') => {
+const renderFilterItemContent = (filterItemData) => {
   return (
-    <FilterItem
-      type={type}
-      iconName={filterItemData.iconName}
-      title={filterItemData.title}
-      key={filterItemData.name}
-    >
-      <div className={classes['button-lists']}>
-        {filterItemData.buttonsLists.map((buttonsList, index) => {
-          return (
-            <ul
-              className={classes['list']}
-              key={`list${index}:${filterItemData.name}`}
-            >
-              {buttonsList.map((buttonData) => {
-                return (
-                  <li className={classes['element']} key={buttonData.name}>
-                    <Label
-                      inputName={filterItemData.name}
-                      htmlFor={buttonData.name}
-                      inputType={buttonData.type}
-                    >
-                      {buttonData.title}
-                    </Label>
-                  </li>
-                );
-              })}
-            </ul>
-          );
-        })}
-      </div>
-    </FilterItem>
+    <div className={classes['button-lists']}>
+      {filterItemData.buttonsLists.map((buttonsList, index) => {
+        return (
+          <ul
+            className={classes['list']}
+            key={`list${index}:${filterItemData.name}`}
+          >
+            {buttonsList.map((buttonData) => {
+              return (
+                <li className={classes['element']} key={buttonData.name}>
+                  <Label
+                    inputName={filterItemData.name}
+                    htmlFor={buttonData.name}
+                    inputType={buttonData.type}
+                  >
+                    {buttonData.title}
+                  </Label>
+                </li>
+              );
+            })}
+          </ul>
+        );
+      })}
+    </div>
   );
 };
 
@@ -48,16 +41,39 @@ export default function Filterlist() {
       <div className={`${classes['filter-list']}`}>
         <FilterItemInput iconName="location" />
 
-        {renderFilterItem(firstFilterData)}
+        <FilterItem
+          type={'unnested'}
+          iconName={firstFilterData.iconName}
+          title={firstFilterData.title}
+          key={firstFilterData.name}
+        >
+          {renderFilterItemContent(firstFilterData)}
+        </FilterItem>
 
         <FilterItem iconName="filter" title={'Дополнительные фильтры'}>
-          {filtersData.map((filterData, index) => {
-            if (index === 0) {
-              return;
-            }
+          <ul>
+            {filtersData.map((filterItemData, index) => {
+              // пропуск уже отображающегося фильтра
+              if (index === 0) {
+                return;
+              }
 
-            return renderFilterItem(filterData, 'nested');
-          })}
+              return (
+                <li
+                  key={filterItemData.name}
+                  className={classes['nested-filter']}
+                >
+                  <FilterItem
+                    type={'nested'}
+                    iconName={filterItemData.iconName}
+                    title={filterItemData.title}
+                  >
+                    {renderFilterItemContent(filterItemData)}
+                  </FilterItem>
+                </li>
+              );
+            })}
+          </ul>
         </FilterItem>
       </div>
       <div className={`${classes['reset-btn-wrapper']}`}>

@@ -62,3 +62,7 @@
 .rotated {
   transform: rotate(90deg);
 }
+
+.rotated path {
+  fill: #202020;
+}
