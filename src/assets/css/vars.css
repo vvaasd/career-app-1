@@ -1,0 +1,15 @@
+:root {
+  --neutral-100: #F9F9F9;
+  --neutral-200: #F6F6F6;
+  --neutral-400: #C5C5C5;
+  --neutral-600: #747474;
+  --neutral-800: #202020;
+  --primary-400: #8CAEE0;
+  --primary-500: #5C89CE;
+  --primary-300: #EBF1FA;
+
+
+  --border-radius: 16px;
+  --box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.03);
+  --box-shadow-hover: 4px 4px 15px 0px rgba(0, 0, 0, 0.08);
+}

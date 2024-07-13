@@ -1,0 +1,58 @@
+.dropdown {
+  position: relative;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: var(--border-radius);
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.333;
+  color: var(--neutral-600);
+  background: var(--neutral-100);
+  box-shadow: var(--box-shadow);
+  text-align: left;
+  transition: background 0.3s, border-radius 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.btn span {
+  margin-right: auto;
+}
+
+.children {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 48px;
+  background: var(--neutral-100);
+  box-shadow: var(--box-shadow);
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+.arrow {
+  transition: transform 0.3s;
+}
+
+.arrow.open {
+  transform: rotate(90deg);
+}
+
+.btn.open {
+  border-radius: 16px 16px 0 0;
+  background: var(--primary-300);
+  color: var(--neutral-800);
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--primary-300);
+  }
+}

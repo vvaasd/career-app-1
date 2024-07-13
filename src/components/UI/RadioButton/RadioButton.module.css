@@ -1,0 +1,54 @@
+.label {
+  display: flex;
+  gap: 16px;
+  padding: 8px 24px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.radio {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.radioFake {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--neutral-400);
+  border-radius: 50%;
+  color: var(--neutral-400);
+  transition: color .2s ease-in-out;
+}
+
+.radioFake::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary-500);
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
+.radio:checked~.radioFake {
+  color: var(--primary-500);
+  border: 1.5px solid var(--primary-500);
+}
+
+.label:hover .radioFake,
+.label:focus .radioFake {
+  color: var(--primary-400);
+  border: 1.5px solid var(--primary-400);
+}
+
+.radio:checked~.radioFake::before {
+  opacity: 1;
+}

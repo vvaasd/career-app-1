@@ -1,0 +1,21 @@
+.container {
+  position: relative;
+  max-height: 660px;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  list-style-type: none;
+  background: var(--neutral-100);
+  box-shadow: var(--box-shadow);
+  z-index: 1;
+  border-radius: 0 0 16px 16px;
+  scrollbar-gutter: stable;
+}
+
+.container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: var(--primary-500);
+}

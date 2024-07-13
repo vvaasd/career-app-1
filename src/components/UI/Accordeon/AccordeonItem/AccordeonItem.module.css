@@ -1,0 +1,82 @@
+.accordion {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 100%;
+  z-index: 1;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 20px 16px 24px;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--neutral-600);
+  background: var(--neutral-100);
+  box-shadow: var(--box-shadow);
+  text-align: left;
+  transition: background 0.3s, border-radius 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.btn.open {
+  color: var(--neutral-800);
+}
+
+.btn legend {
+  margin-right: auto;
+}
+
+.children {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--neutral-100);
+  overflow: hidden;
+  transition: height 0.3s;
+  z-index: 1;
+}
+
+.accordion::before {
+  position: absolute;
+  content: '';
+  min-height: 1px;
+  width: 100%;
+  top: 0px;
+  right: 0;
+  left: 0;
+  border-image: linear-gradient(90deg, rgba(239, 239, 239, 0) 0%, #EFEFEF 19.5%, #EFEFEF 83%, rgba(239, 239, 239, 0) 100%);
+  border-image-slice: 1;
+  z-index: 2;
+  border-top: 1px solid;
+}
+
+.children::after {
+  position: absolute;
+  content: '';
+  min-height: 1px;
+  width: 100%;
+  bottom: 0px;
+  right: 0;
+  left: 0;
+  border-image: linear-gradient(90deg, rgba(239, 239, 239, 0) 0%, #EFEFEF 19.5%, #EFEFEF 83%, rgba(239, 239, 239, 0) 100%);
+  border-image-slice: 1;
+  z-index: 2;
+  border-top: 1px solid;
+}
+
+.arrow {
+  transition: transform 0.3s;
+}
+
+.arrow.open {
+  transform: rotate(90deg);
+}
+
