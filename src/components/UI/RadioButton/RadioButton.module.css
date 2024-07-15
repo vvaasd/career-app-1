@@ -24,21 +24,22 @@
   border: 1.5px solid var(--neutral-400);
   border-radius: 50%;
   color: var(--neutral-400);
-  transition: color .2s ease-in-out;
+  transition: color border 0.2s ease-in-out;
 }
 
 .radioFake::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 6px;
   height: 6px;
   border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
   background: var(--primary-500);
   opacity: 0;
-  transition: opacity .2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
-.radio:checked~.radioFake {
+.radio:checked ~ .radioFake {
   color: var(--primary-500);
   border: 1.5px solid var(--primary-500);
 }
@@ -49,6 +50,15 @@
   border: 1.5px solid var(--primary-400);
 }
 
-.radio:checked~.radioFake::before {
+.radio:checked ~ .radioFake::before {
   opacity: 1;
+}
+
+.label:hover .radioFake {
+  border: 1.5px solid var(--primary-400);
+  color: var(--primary-400);
+}
+
+.label:hover .radioFake::before {
+  background: var(--primary-400);
 }

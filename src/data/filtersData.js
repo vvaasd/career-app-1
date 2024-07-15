@@ -141,6 +141,7 @@ export const listSalary = [
   {
     id: 'kjsfbasdopzixaklyhndgsda',
     value: 'Указан доход',
+    btnType: 'checkbox',
   },
 ];
 

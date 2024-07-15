@@ -52,7 +52,13 @@
   top: 0px;
   right: 0;
   left: 0;
-  border-image: linear-gradient(90deg, rgba(239, 239, 239, 0) 0%, #EFEFEF 19.5%, #EFEFEF 83%, rgba(239, 239, 239, 0) 100%);
+  border-image: linear-gradient(
+    90deg,
+    rgba(239, 239, 239, 0) 0%,
+    #efefef 19.5%,
+    #efefef 83%,
+    rgba(239, 239, 239, 0) 100%
+  );
   border-image-slice: 1;
   z-index: 2;
   border-top: 1px solid;
@@ -66,7 +72,13 @@
   bottom: 0px;
   right: 0;
   left: 0;
-  border-image: linear-gradient(90deg, rgba(239, 239, 239, 0) 0%, #EFEFEF 19.5%, #EFEFEF 83%, rgba(239, 239, 239, 0) 100%);
+  border-image: linear-gradient(
+    90deg,
+    rgba(239, 239, 239, 0) 0%,
+    #efefef 19.5%,
+    #efefef 83%,
+    rgba(239, 239, 239, 0) 100%
+  );
   border-image-slice: 1;
   z-index: 2;
   border-top: 1px solid;
@@ -79,4 +91,3 @@
 .arrow.open {
   transform: rotate(90deg);
 }
-

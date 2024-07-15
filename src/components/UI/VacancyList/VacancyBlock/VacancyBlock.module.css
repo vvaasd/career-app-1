@@ -11,3 +11,10 @@
   font-weight: 700;
   line-height: 1.333;
 }
+
+.skeleton {
+  width: 256px;
+  height: 32px;
+  border-radius: var(--border-radius);
+  background-color: var(--neutral-300);
+}

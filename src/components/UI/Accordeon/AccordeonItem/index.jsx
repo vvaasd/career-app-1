@@ -17,7 +17,7 @@ export function AccordeonItem({ icon, title, list, name, type = 'checkbox' }) {
   const handlerToogle = () => {
     setIsOpen((prev) => !prev);
   };
-
+  console.log(list);
   return (
     <fieldset ref={accordeonRef} className={styles.accordion}>
       <button
@@ -39,30 +39,31 @@ export function AccordeonItem({ icon, title, list, name, type = 'checkbox' }) {
         className={styles.children}
         style={{ height: `${isOpen ? height * list.length : 0}px` }}
       >
-        {list.map(({ id, value }) => {
-          return (
-            <>
-              {type === 'checkbox' ? (
-                <Checkbox
-                  key={id}
-                  id={id}
-                  value={value}
-                  name={name}
-                  text={value}
-                  style={{ height: `${height}px` }}
-                />
-              ) : (
-                <RadioButton
-                  key={id}
-                  id={id}
-                  value={value}
-                  name={name}
-                  text={value}
-                  style={{ height: `${height}px` }}
-                />
-              )}
-            </>
-          );
+        {list.map(({ id, value, btnType }) => {
+          const button =
+            type === 'checkbox' || btnType === 'checkbox' ? (
+              <Checkbox
+                key={id}
+                id={id}
+                value={value}
+                name={name}
+                text={value}
+                style={{
+                  height: `${height}px`,
+                  marginTop: btnType === 'checkbox' ? '8px' : '',
+                }}
+              />
+            ) : (
+              <RadioButton
+                key={id}
+                id={id}
+                value={value}
+                name={name}
+                text={value}
+                style={{ height: `${height}px` }}
+              />
+            );
+          return button;
         })}
       </div>
     </fieldset>

@@ -18,7 +18,11 @@
 
 .label svg rect {
   stroke: var(--neutral-400);
-  transition: stroke o.3s;
+  transition: stroke 0.3s;
+}
+
+.label svg path {
+  transition: stroke 0.3s;
 }
 
 .checkbox ~ svg path {
@@ -30,6 +34,14 @@
   stroke: var(--primary-500);
 }
 
+.label:hover svg rect {
+  stroke: var(--primary-400);
+}
+
 .checkbox:checked ~ svg path {
   opacity: 1;
+}
+
+.label:hover svg path {
+  stroke: var(--primary-400);
 }
