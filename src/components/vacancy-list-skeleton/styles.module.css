@@ -1,0 +1,79 @@
+.date {
+  width: 256px;
+  height: 32px;
+  background-color: var(--skeleton);
+  border-radius: 16px;
+}
+
+.list {
+  padding: 32px 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(293px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  position: relative;
+  border-radius: 16px;
+  padding: 32px;
+  background-color: var(--bg-1);
+  font-weight: 500;
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-2);
+}
+
+
+.title {
+  margin-bottom: 4px;
+  width: 78%;
+  height: 24px;
+  background: var(--skeleton);
+  border-radius: 16px;
+}
+
+.salary {
+  width: 45%;
+  height: 24px;
+  margin-bottom: 16px;
+  background: var(--skeleton);
+  border-radius: 16px;
+}
+
+.desc {
+  width: 34%;
+  height: 16px;
+  margin-bottom: 8px;
+  background: var(--skeleton);
+  border-radius: 16px;
+}
+
+.desc2 {
+  width: 19%;
+  height: 16px;
+  margin-bottom: 16px;
+  background: var(--skeleton);
+  border-radius: 16px;
+}
+
+
+.footer {
+  display: flex;
+  gap: 8px;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  background: var(--skeleton);
+  border-radius: 50%;
+}
+
+.line {
+  width: 51%;
+  background: var(--skeleton);
+  border-radius: 16px;
+}

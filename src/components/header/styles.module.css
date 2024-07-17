@@ -1,0 +1,41 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 27px 40px 24px;
+  box-shadow: var(--shadow-1);
+  background: var(--bg-1);
+  z-index: 2;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.nav {
+  padding-right: 150px;
+  display: flex;
+  gap: 72px;
+  margin: 0 auto;
+}
+
+.link {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 143%;
+  color: var(--disabled-text);
+  transition: color 0.3s;
+}
+
+.active {
+  color: var(--active-1);
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--hover-1);
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 26px 40px;
+  margin: 0 auto;
+}
+
+.desc {
+  padding: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  color: var(--gray);
+}
+
+.link {
+  color: var(--gray);
+  line-height: 114%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}

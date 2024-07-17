@@ -1,0 +1,42 @@
+.block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding: 16px 24px;
+  background-color: var(--bg-1);
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.reset:hover .cross {
+  fill: var(--active-1)
+}
+
+.block:hover {
+  background-color: var(--hover-2);
+  box-shadow: var(--shadow-2);
+}
+
+.focus {
+  background-color: var(--hover-2);
+}
+
+.input {
+  height: 100%;
+  width: 100%;
+  padding-left: 16px;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 133%;
+}
+
+.reset {
+  font-size: 0;
+  cursor: pointer;
+}
