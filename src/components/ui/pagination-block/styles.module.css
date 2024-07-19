@@ -1,0 +1,46 @@
+.block {
+  display: flex;
+  justify-content: center;
+  padding-block: 32px;
+}
+
+.list {
+  display: flex;
+  gap: 8px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+
+  color: var(--text-color);
+}
+
+.btn {
+  width: 53px;
+  height: 44px;
+  border-radius: var(--border-radius);
+  background-color: var(--hover-2);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+
+  transition: 0.3s ease-in-out;
+}
+
+.selected {
+  background-color: var(--active-1);
+  color: var(--bg-1);
+}
+
+.btn:not(.selected):not(.dots):hover {
+  color: var(--bg-1);
+  background-color: var(--hover-1);
+}
+
+.dots {
+  background-color: transparent;
+  cursor: auto;
+}

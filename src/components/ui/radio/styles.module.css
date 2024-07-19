@@ -29,21 +29,21 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.field::before{
+.field::before {
   content: '';
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--active-1);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
-.input:checked + .field{
+.input:checked + .field {
   border-color: var(--active-1);
 }
 
-.input:checked + .field::before{
+.input:checked + .field::before {
   opacity: 1;
 }
 
@@ -52,4 +52,3 @@
   font-size: 12px;
   line-height: 16px;
 }
-

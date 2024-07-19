@@ -19,21 +19,21 @@
   height: 16px;
   border: 1.5px solid var(--grey);
   border-radius: 4px;
-  transform: translateY(1px);
+  transform: translateY(0.5px);
   transition: border-color 0.3s ease-in-out;
 }
 
 .icon {
-  transform: translateX(1px);
+  transform: translateX(0.5px);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
-.input:checked + .field{
+.input:checked + .field {
   border-color: var(--active-1);
 }
 
-.input:checked + .field .icon{
+.input:checked + .field .icon {
   opacity: 1;
 }
 
