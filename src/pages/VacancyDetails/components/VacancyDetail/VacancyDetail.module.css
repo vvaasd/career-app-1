@@ -1,0 +1,43 @@
+.details {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 352px;
+  align-items: start;
+  gap: 32px;
+}
+
+.vacancyName {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.333;
+}
+
+.salary {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.descriptionTitle {
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.vacancyData ul {
+  list-style-type: "—";
+  padding-left: 15px;
+}
+
+.vacancyData ul li > * {
+  padding-left: 5px;
+}
+
+.publishDate {
+  color: var(--neutral-600);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.429;
+}

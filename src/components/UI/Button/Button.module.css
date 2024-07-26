@@ -1,0 +1,61 @@
+.btn {
+  --button-bg: var(--primary-500);
+  --button-border: var(--primary-500);
+  --button-text: var(--neutral-100);
+
+  --button-bg-hover: var(--primary-400);
+  --button-border-hover: var(--primary-400);
+  --button-text-hover: var(--neutral-100);
+
+  --button-icon-size: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 22px;
+  border: 2px solid var(--button-border);
+  border-radius: var(--border-radius);
+  color: var(--button-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.429;
+  background: var(--button-bg);
+  transition: color .2s ease-in-out, background .2s ease-in-out, border-color .2s ease-in-out;
+}
+
+.btn svg {
+  width: var(--button-icon-size);
+  height: var(--button-icon-size);
+}
+
+.btn.outlined {
+  --button-bg: transparent;
+  --button-text: var(--primary-500);
+  --button-bg-hover: var(--primary-100);
+  --button-border-hover: var(--primary-500);
+  --button-text-hover: var(--primary-500);
+}
+
+.btn.text {
+  --button-bg: transparent;
+  --button-text: var(--primary-500);
+  --button-bg-hover: transparent;
+  --button-text-hover: var(--primary-400);
+  --button-icon-size: 16px;
+  padding: 0;
+  border: none;
+}
+
+.btn.text.sm {
+  --button-icon-size: 12px;
+  gap: 12px;
+  font-size: 12px;
+  line-height: 1.333;
+}
+
+.btn:hover,
+.btn:focus {
+  border-color: var(--button-border-hover);
+  color: var(--button-text-hover);
+  background: var(--button-bg-hover);
+}

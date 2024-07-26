@@ -1,0 +1,7 @@
+.returnBtn {
+  margin-bottom: 32px;
+}
+
+.returnBtn svg {
+  transform: rotate(180deg);
+}

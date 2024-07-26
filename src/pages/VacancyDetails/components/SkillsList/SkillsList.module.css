@@ -1,0 +1,23 @@
+.skillsTitle {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 32px;
+}
+
+.skillsItem {
+  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.429;
+  background: var(--primary-200);
+}
