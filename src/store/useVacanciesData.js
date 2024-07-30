@@ -1,5 +1,7 @@
-import formatDate from "@utils/formatDate";
-import { create } from "zustand";
+import formatDate from '@utils/formatDate';
+import getQueryParams from '@utils/getQueryParams';
+import { constVacanciesPerPage } from '@constants/constVacanciesPerPage';
+import { create } from 'zustand';
 
 const useVacanciesData = create((set, get) => ({
   data: [],
@@ -8,6 +10,9 @@ const useVacanciesData = create((set, get) => ({
   totalPages: 0,
   curPage: 0,
   hiddenIds: [],
+  resetCurPage: () => {
+    set({ curPage: 0 });
+  },
   toggleVacancy: (id) => {
     const idsList = get().hiddenIds;
     const foundedId = idsList.find((item) => item === id);
@@ -17,31 +22,32 @@ const useVacanciesData = create((set, get) => ({
         : [...idsList, id],
     });
   },
-  fetch: (city = "", page = get().curPage, per_page = 18) => {
-    const pagesCount = get().totalPages;
+  fetchVacancy: (page = get().curPage, filters) => {
     set({ loading: true, error: null });
-    if (!pagesCount) page = 0;
-    else if (page >= pagesCount) page = pagesCount - 1;
-    fetch(
-      `https://api.hh.ru/vacancies?text=frontend ${city}&order_by=publication_time&per_page=${per_page}&page=${page}`
-    )
+    const pagesCount = get().totalPages;
+    if (!pagesCount) {
+      page = 0;
+    } else if (page >= pagesCount) {
+      page = pagesCount - 1;
+    }
+
+    const params = getQueryParams(filters);
+    const API = `https://api.hh.ru/vacancies?&per_page=${constVacanciesPerPage}&page=${page}&order_by=publication_time${params}`;
+
+    fetch(API)
       .then((res) => res.json())
       .then((data) => {
         return set({
           totalPages: data.pages,
           curPage: page,
           data: data.items
-            .filter(
-              (vacancy) =>
-                !get().hiddenIds.find((hiddenId) => hiddenId === vacancy.id)
-            )
             .map((vacancy) => {
               const formattedDate = formatDate(vacancy.published_at);
               return {
                 id: vacancy.id,
                 date:
                   formatDate(vacancy.published_at) === formatDate(Date.now())
-                    ? "Сегодня," + formattedDate.split(",")[1]
+                    ? 'Сегодня,' + formattedDate.split(',')[1]
                     : formattedDate,
                 name: vacancy.name,
                 salary: vacancy.salary,

@@ -25,8 +25,20 @@
   transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.hideBtn:hover {
-  color: var(--primary-500);
+.hideImg {
+  width: 16px;
+  height: 16px;
+}
+
+.hideImg path {
+  transition: 0.2s;
+  fill: var(--neutral-600);
+  stroke: var(--neutral-600);
+}
+
+.hideImg:hover path {
+  fill: var(--primary-500);
+  stroke: var(--primary-500);
 }
 
 .card:hover .hideBtn {
@@ -56,6 +68,9 @@
 .company {
   display: block;
   margin-bottom: 8px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .city {

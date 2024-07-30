@@ -1,0 +1,110 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 352px;
+
+  transition: 0.2s;
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background: var(--neutral-100);
+  transition: 0.2s;
+  height: 48px;
+}
+
+.input-wrapper:focus-within {
+  background-color: var(--primary-300);
+}
+
+.input-wrapper.is-opened {
+  background-color: var(--primary-300);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.input-wrapper:hover {
+  box-shadow: var(--box-shadow-hover);
+  background-color: var(--primary-300);
+}
+
+.input {
+  cursor: text;
+  padding: 16px 0 16px 56px;
+  background: none;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--neutral-800);
+  width: 100%;
+  max-width: 100%;
+  border: none;
+}
+
+.input::placeholder {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--neutral-600);
+}
+
+.input:not(:placeholder-shown) + .reset-btn {
+  display: block;
+  opacity: 1;
+}
+
+.reset-btn {
+  display: none;
+  opacity: 0;
+  background: none;
+  transition: 0.2s;
+  padding: 18px 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.reset-btn:hover svg path {
+  transition: 0.2s;
+}
+
+.reset-btn:hover svg path {
+  fill: #5c89ce;
+}
+
+.bg-icon {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  pointer-events: none;
+}
+
+.bg-colored {
+  background-color: var(--primary-100);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  padding-block: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.element {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.counter {
+  pointer-events: none;
+  position: absolute;
+  top: 12px;
+  right: 24px;
+}

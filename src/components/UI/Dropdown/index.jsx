@@ -1,16 +1,40 @@
-import { forwardRef } from 'react';
-import styles from './dropdown.module.css'
-import clsx from '@utils/clsx';
+import { useEffect, useState } from 'react';
+import classes from './Dropdown.module.css';
 
+export default function Dropdown({
+  isOpened = false,
+  type = 'unnested',
+  children,
+}) {
+  const [isTransition, setIsTransition] = useState(false);
+  const TRANSITION_DURATION = 200;
 
-const Dropdown = forwardRef((props, ref) => {
+  useEffect(() => {
+    if (type === 'unnested') {
+      setIsTransition(true);
 
-  const { className, children } = props
+      const transitionTimer = setTimeout(() => {
+        setIsTransition(false);
+      }, TRANSITION_DURATION);
+      return () => {
+        clearTimeout(transitionTimer);
+      };
+    }
+  }, [isOpened]);
+
   return (
-    <div className={clsx(styles.dropdown, className)} ref={ref}>
-      {children}
+    <div
+      className={`${classes['dropdown']} ${classes[type]} ${
+        isOpened && classes['shown']
+      }`}
+    >
+      <div
+        className={`${classes['dropdown-content']} ${
+          isTransition && type === 'unnested' && classes['no-scroll']
+        }`}
+      >
+        {children}
+      </div>
     </div>
-  )
-})
-
-export default Dropdown;
+  );
+}

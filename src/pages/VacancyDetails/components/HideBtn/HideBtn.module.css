@@ -2,3 +2,8 @@
   margin-top: 32px;
   margin-bottom: 32px;
 }
+
+.img path {
+  fill: var(--primary-500);
+  stroke: var(--primary-500);
+}

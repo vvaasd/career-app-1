@@ -1,8 +1,8 @@
-import Button from "@components/UI/Button";
-import ChevronRight from "@components/UI/icons/ChevronRight";
-import useCurPage from "@store/useCurPage";
-import { pages } from "@constants/constPages";
-import styles from "./ReturnBtn.module.css";
+import Button from '@components/UI/Button';
+import Icon from '@components/UI/Icon';
+import useCurPage from '@store/useCurPage';
+import { pages } from '@constants/constPages';
+import styles from './ReturnBtn.module.css';
 
 const ReturnBtn = () => {
   const { navigate } = useCurPage();
@@ -13,7 +13,7 @@ const ReturnBtn = () => {
       type="text"
       onClick={() => navigate(pages.vacanciesSearch)}
     >
-      <ChevronRight />К результатам поиска
+      <Icon name="arrowToRight" className={styles.img} />К результатам поиска
     </Button>
   );
 };

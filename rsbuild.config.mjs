@@ -6,19 +6,19 @@ const isProd = process.env.NODE_ENV === 'production';
 export default defineConfig({
   plugins: [pluginReact()],
   html: {
-    title: "Career App",
+    title: 'Career App',
   },
   source: {
     alias: {
-      "@assets": "./src/assets",
-      "@components": "./src/components",
-      "@constants": "./src/constants",
-      "@data": "./src/data",
-      "@hooks": "./src/hooks",
-      "@pages": "./src/pages",
-      "@store": "./src/store",
-      "@utils": "./src/utils",
-    }
+      '@assets': './src/assets',
+      '@components': './src/components',
+      '@constants': './src/constants',
+      '@data': './src/data',
+      '@hooks': './src/hooks',
+      '@pages': './src/pages',
+      '@store': './src/store',
+      '@utils': './src/utils',
+    },
   },
   output: {
     cssModules: {

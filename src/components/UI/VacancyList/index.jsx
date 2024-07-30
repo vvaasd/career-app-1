@@ -9,30 +9,43 @@ const VacancyList = ({
   data,
   isLoading,
   perPage = 18,
-  type = "with-pagination",
+  type = 'with-pagination',
   groupByDate = true,
   onShowMore,
-  isShowMoreBtnVisible
+  isShowMoreBtnVisible,
 }) => {
-  if (!isLoading && !data.length) return 'Нет данных';
+  if (!isLoading && !data.length)
+    return (
+      <div className={styles.noDataBlock}>
+        <p className={styles.noDataMsg}>
+          Не удалось найти вакансии с выбранными параметрами. <br />
+          Попробуйте другие.
+        </p>
+      </div>
+    );
 
-  const dataOutput = (data) => groupByDate ? data.map((item) => (
-    <section key={item.date} className={styles.vacanciesSection}>
-      <h1 className={clsx('title', styles.title)}>{item.date}</h1>
-      <VacancyBlock data={item.vacancies} />
-    </section>
-  )) : (
-    <VacancyBlock data={data} />
-  )
+  const dataOutput = (data) =>
+    groupByDate ? (
+      data.map((item) => (
+        <section key={item.date} className={styles.vacanciesSection}>
+          <h1 className={clsx('title', styles.title)}>{item.date}</h1>
+          <VacancyBlock data={item.vacancies} />
+        </section>
+      ))
+    ) : (
+      <VacancyBlock data={data} />
+    );
 
   const WithPagination = () => (
     <>
       {isLoading ? (
         <VacancyListSkeleton cardsCount={perPage} />
-      ) : dataOutput(data)}
+      ) : (
+        dataOutput(data)
+      )}
       <PaginatePagesList />
     </>
-  )
+  );
 
   const InfinityList = () => (
     <>
@@ -41,18 +54,18 @@ const VacancyList = ({
         <VacancyListSkeleton cardsCount={perPage} withTitle={false} />
       )}
       {isShowMoreBtnVisible && (
-        <Button className={styles.showMoreBtn} onClick={onShowMore} disabled={isLoading}>
+        <Button
+          className={styles.showMoreBtn}
+          onClick={onShowMore}
+          disabled={isLoading}
+        >
           Показать ещё
         </Button>
       )}
     </>
-  )
-
-  return type === "with-pagination" ? (
-    <WithPagination />
-  ) : (
-    <InfinityList />
   );
+
+  return type === 'with-pagination' ? <WithPagination /> : <InfinityList />;
 };
 
 export default VacancyList;

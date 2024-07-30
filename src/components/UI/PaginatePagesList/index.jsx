@@ -1,15 +1,16 @@
-import useVacanciesData from "@store/useVacanciesData";
-import PaginatePageItem from "./PaginatePageItem";
-import { usePaginateMask } from "@hooks";
-import styles from "./PaginatePagesList.module.css";
+import useVacanciesData from '@store/useVacanciesData';
+import PaginatePageItem from './PaginatePageItem';
+import { usePaginateMask } from '@hooks';
+import useFilters from '@store/useFilters';
+import styles from './PaginatePagesList.module.css';
 
 const PaginatePagesList = () => {
-  const { totalPages, curPage, fetch: fetchVacancy } = useVacanciesData();
-
+  const { totalPages, curPage, fetchVacancy } = useVacanciesData();
+  const currentFilters = useFilters((state) => state.currentFilters);
   const paginameMask = usePaginateMask(totalPages, curPage);
 
   const onClick = (page) => {
-    fetchVacancy("", page - 1);
+    fetchVacancy(page - 1, currentFilters);
   };
 
   return (

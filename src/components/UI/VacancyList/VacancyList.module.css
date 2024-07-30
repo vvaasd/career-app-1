@@ -1,5 +1,5 @@
 .vacanciesSection {
-  margin-top: 64px;
+  margin-top: 32px;
 }
 
 .title {
@@ -12,4 +12,19 @@
 .showMoreBtn {
   margin-top: 32px;
   margin-inline: auto;
+}
+
+.noDataBlock {
+  height: 528px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noDataMsg {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--neutral-600);
+  margin: 0;
 }

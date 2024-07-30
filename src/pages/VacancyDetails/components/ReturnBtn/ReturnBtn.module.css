@@ -5,3 +5,12 @@
 .returnBtn svg {
   transform: rotate(180deg);
 }
+
+.img path {
+  fill: var(--primary-500);
+  transition: fill 0.3s;
+}
+
+.returnBtn:hover .img path {
+  fill: var(--primary-400);
+}

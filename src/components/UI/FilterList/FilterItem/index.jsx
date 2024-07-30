@@ -1,132 +1,78 @@
-import clsx from "@utils/clsx";
-import styles from "./FilterItem.module.css";
-import ChevronRight from "@components/UI/icons/ChevronRight";
-import Checkbox from "@components/UI/icons/Checkbox";
-import CheckboxActive from "@components/UI/icons/CheckboxActive";
-import RadioActive from "@components/UI/icons/RadioActive";
-import Radio from "@components/UI/icons/Radio";
-import { useClickOutside } from "@hooks/useClickOutside";
-import { useState } from "react";
+import { useRef, useState } from 'react';
+import { useClickOutside } from '@hooks';
+import Icon from '@components/UI/Icon';
+import Dropdown from '@components/UI/Dropdown';
+import FilterCounter from '@components/UI/FilterCounter';
+import useFilters from '@store/useFilters';
+import styles from './FilterItem.module.css';
 
-import Dropdown from "@components/UI/Dropdown";
+export default function FilterItem({
+  iconName,
+  title,
+  type = 'unnested',
+  children,
+  filterName,
+  nestedCount = 0,
+}) {
+  const [isOpened, setIsOpened] = useState(false);
+  const currentFilters = useFilters((state) => state.currentFilters);
+  const filterItemRef = useRef(null);
+  const currentFilter = currentFilters[filterName];
 
-const FilterItem = ({
-  name,
-  icon: Icon,
-  expandable,
-  option,
-  list,
-  recursion = false,
-  data,
-  setData,
-  radioValue,
-  setRadioValue
-}) => {
+  let filterCount = 0;
+  if (typeof currentFilter === 'object') {
+    filterCount = currentFilter.length;
+  } else if (currentFilter) {
+    filterCount = 1;
+  }
+  // переменные чекбоксов, которые хранятся вне массивов для чекбоксов
+  if (filterName === 'salary' && currentFilters.only_with_salary) {
+    filterCount++;
+  }
+  if (filterName === 'label' && currentFilters.show_hidden) {
+    filterCount++;
+  }
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleCheckbox = (e) => {
-    const index = data.indexOf(e.target.value)
-    setData(index !== -1 ? [...data.slice(0, index), ...data.slice(index + 1)] : [...data, e.target.value])
-  };
-
-  const changeRadio = (e) => {
-    setRadioValue(e.target.value)
-  };
-
-  const ref = useClickOutside(() => {
-    setIsDropdownOpen(recursion ? isDropdownOpen : false)
-  });
-
+  if (type === 'unnested') {
+    useClickOutside(filterItemRef, () => {
+      setIsOpened(false);
+    });
+  }
 
   return (
-    <li className={styles.item}>
-      <Dropdown setIsDropdownOpen={setIsDropdownOpen} ref={ref}>
-        <button
-          className={clsx("btn", styles.btn, isDropdownOpen && styles.open, recursion && styles.recursion)}
-          onClick={() => { setIsDropdownOpen((prev) => !prev) }}
-        >
-          {Icon && <Icon />}
-          <span className={styles.text}>{name}</span>
-          {expandable && <ChevronRight className={styles.icon} />}
-        </button>
-        {isDropdownOpen &&
-          <div className={clsx(styles.optionWrapper, recursion && styles.recursion)}>
-            <ul className={styles.list}>
-              {option?.type === 'radio' && option?.filterOption?.map((item) => {
-                return (
-                  <li className={styles.itemDrop} key={item.id}>
-                    <label className={styles.label} >
-                      <input
-                        type="radio"
-                        value={item.value}
-                        checked={radioValue === item.value ? true : false}
-                        className={styles.radio}
-                        onChange={changeRadio}
-                      />
-                      {radioValue !== item.value && <Radio />}
-                      {radioValue === item.value && <RadioActive />}
-                      <span>{item.value}</span>
-                    </label>
-                  </li>
-                )
-              })}
-              {option?.type === 'checkbox' && option?.filterOption?.map((item) => {
-                return (
-                  <li className={styles.itemDrop} key={item.id}>
-                    <label className={styles.label}>
-                      <input
-                        className={clsx(styles.checkbox)}
-                        type="checkbox"
-                        value={item.value}
-                        onChange={toggleCheckbox}
-                        checked={data.includes(item.value)}
-                      />
-                      {!data.includes(item.value) && <Checkbox />}
-                      {data.includes(item.value) && <CheckboxActive />}
-                      <span>{item.value}</span>
-                    </label>
-                  </li>
+    <div ref={filterItemRef} className={styles['wrapper']}>
+      <button
+        className={`${styles['filter-btn']} ${
+          type === 'nested' && styles['nested']
+        } ${isOpened && styles['opened']}`}
+        onClick={() => {
+          setIsOpened((prev) => !prev);
+        }}
+      >
+        <div className={styles['icon-and-text']}>
+          <Icon name={iconName} className={styles['icon']} />
+          <div
+            className={`${styles['text']} ${
+              (nestedCount || filterCount) && styles['short']
+            }`}
+          >
+            {title}
+          </div>
+        </div>
+        <div className={styles['counter-and-arrow']}>
+          <FilterCounter count={nestedCount || filterCount} />
+          <Icon
+            name="arrowToRight"
+            className={`${styles['arrow-icon']} ${
+              isOpened && styles['rotated']
+            }`}
+          />
+        </div>
+      </button>
 
-
-                )
-              })}
-              {list?.map((filter) => {
-                return (
-                  <FilterItem
-                    expandable={filter.expandable}
-                    icon={filter.icon}
-                    name={filter.name}
-                    option={filter?.filterItem}
-                    list={filter?.filterList}
-                    key={filter.id}
-                    recursion={true}
-                    data={data}
-                    setData={setData}
-                    radioValue={radioValue}
-                    setRadioValue={setRadioValue}
-                  />
-                )
-              })}
-            </ul>
-          </div>}
+      <Dropdown isOpened={isOpened} type={type}>
+        {children}
       </Dropdown>
-    </li>
+    </div>
   );
 }
-
-export default FilterItem;
-
-
-{/* <li className={styles.itemDrop} key={item.id}>
-<label className={styles.label} onClick={toggleCheckbox}>
-  <span
-    className={clsx(styles.checkbox, data.includes(item.value) ? styles.checked : '')}
-    type="checkbox"
-    value={item.value}
-    onChange={toggleCheckbox}
-  
-  />
-  <span>{item.value}</span>
-</label>
-</li> */}
