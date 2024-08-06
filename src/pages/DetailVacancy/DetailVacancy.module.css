@@ -1,5 +1,5 @@
 .wrapper {
-  margin: 32px 0;
+  margin: 32px 40px;
 }
 
 .btn {
@@ -32,4 +32,32 @@
 
 .icon path {
   fill: var(--primary-500);
+}
+
+@media all and (max-width: 1023.9px) {
+  .wrapper {
+    margin: 24px 40px;
+  }
+
+  .btn {
+    margin-bottom: 24px;
+  }
+}
+
+@media all and (max-width: 767.9px) {
+  .wrapper {
+    margin: 16px 20px;
+  }
+
+  .btn {
+    gap: 12px;
+    font-size: 12px;
+    line-height: 133%;
+    margin-bottom: 16px;
+  }
+
+  .icon {
+    width: 12px;
+    height: 12px;
+  }
 }

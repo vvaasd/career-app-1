@@ -3,6 +3,7 @@
   display: flex;
   gap: 32px;
 }
+
 .leftSite {
   width: 68%;
   padding: 32px;
@@ -46,6 +47,9 @@
   display: flex;
   gap: 16px;
   align-items: center;
+}
+
+.requirementsItem span {
   font-weight: 500;
   font-size: 14px;
   line-height: 143%;
@@ -63,7 +67,6 @@
   font-size: 14px;
   line-height: 143%;
   align-items: center;
-  margin-bottom: 32px;
   color: var(--primary-500);
   background-color: transparent;
   border: none;
@@ -94,6 +97,8 @@
 
 .titleDescr {
   margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 150%;
 }
 
 .descr p {
@@ -127,7 +132,7 @@
 
 .descr ol li::after,
 .descr ul li::after {
-  content: "—";
+  content: '—';
   position: absolute;
   height: 100%;
   left: 0;
@@ -182,6 +187,7 @@
 .logo {
   max-width: 100%;
   height: 60px;
+  width: 108px;
   border-radius: var(--border-radius);
   object-fit: cover;
   margin-bottom: 16px;
@@ -193,6 +199,7 @@
   font-size: 20px;
   line-height: 140%;
 }
+
 .address {
   display: block;
   font-weight: 500;
@@ -201,3 +208,217 @@
   margin-top: 8px;
 }
 
+@media all and (max-width: 1023.9px) {
+  .content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .leftSite {
+    width: auto;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .title {
+    margin-bottom: 12px;
+  }
+
+  .requirements {
+    gap: 12px;
+  }
+
+  .requirementsList {
+    width: 100%;
+    gap: 24px;
+  }
+
+  .requirementsItem {
+    gap: 16px;
+  }
+
+  .requirementsIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .skillBlock {
+    gap: 24px;
+  }
+
+  .skillTitle {
+    margin-bottom: 24px;
+  }
+
+  .skillList {
+    gap: 12px;
+    row-gap: 6px;
+  }
+
+  .rigntSite {
+    position: static;
+    width: auto;
+    padding: 24px;
+    justify-content: space-between;
+    display: flex;
+    gap: 24px;
+  }
+
+  .info {
+    order: 1;
+  }
+
+  .logoWrapper {
+    order: 2;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+}
+
+@media all and (max-width: 767.9px) {
+  .content {
+    gap: 16px;
+  }
+
+  .leftSite {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 140%;
+    margin-bottom: 8px;
+  }
+
+  .wages {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .requirements {
+    gap: 8px;
+  }
+
+  .requirementsList {
+    gap: 16px;
+    row-gap: 8px;
+  }
+
+  .requirementsItem {
+    gap: 8px;
+  }
+
+  .requirementsItem span {
+    font-size: 12px;
+    line-height: 133%;
+  }
+
+  .requirementsIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .btn {
+    box-sizing: border-box;
+    gap: 12px;
+    font-size: 12px;
+    line-height: 133%;
+  }
+
+  .hidBtn {
+    padding: 12px 16px;
+  }
+
+  .btnIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .titleDescr {
+    margin-bottom: 20px;
+  }
+
+  .descr strong,
+  h2,
+  h1,
+  h3,
+  h4 {
+    font-size: 14px;
+    line-height: 143%;
+  }
+
+  .descr p {
+    font-size: 14px;
+    line-height: 143%;
+    margin-bottom: 20px;
+  }
+
+  .descr ol,
+  .descr ul {
+    margin-top: 20px;
+  }
+
+  .descr ol li,
+  .descr ul li {
+    font-size: 14px;
+    line-height: 143%;
+
+    padding-left: 20px !important;
+    margin-bottom: 0;
+  }
+
+  .descr ol li p,
+  .descr ul li p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 143%;
+  }
+  .descr ol li:last-child,
+  .descr ul li:last-child {
+    margin-bottom: 20px;
+  }
+
+  .skillBlock {
+    gap: 16px;
+  }
+
+  .skillTitle {
+    margin-bottom: 16px;
+  }
+
+  .skillList {
+    gap: 8px;
+    row-gap: 4px;
+  }
+
+  .skillItem {
+    font-size: 12px;
+    line-height: 133%;
+  }
+
+  .published {
+    font-size: 12px;
+    line-height: 133%;
+  }
+
+  .rigntSite {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .logo {
+    height: 52px;
+    width: 92px;
+  }
+
+  .company {
+    font-size: 20px;
+  }
+
+  .address {
+    font-size: 16px;
+  }
+}

@@ -10,15 +10,14 @@ import { SekeletonCard } from './SekeletonCard';
 
 export const VacancyCard = ({
   vacancy,
-  setSimilarVacancies = () => { },
-  setSimilarPage = () => { },
+  setSimilarVacancies = () => {},
+  setSimilarPage = () => {},
   eye = true,
   isShowHidden,
 }) => {
   const isEmpty = !Object.keys(vacancy).length;
-
   const { setPageApp } = useRouteStore();
-  const { fetchVacancy } = useDetailVacancyStore();
+  const { fetchVacancy, resetVacancyDetail } = useDetailVacancyStore();
   const { blackList, toggleToBlackList } = useVacancyStore();
 
   const handleBlackList = (e) => {
@@ -26,6 +25,7 @@ export const VacancyCard = ({
     toggleToBlackList(vacancy.id);
   };
   const handleDetailVacancy = () => {
+    resetVacancyDetail();
     fetchVacancy(vacancy.id);
     setPageApp(APP_PAGE.vacancy);
     setSimilarVacancies([]);
