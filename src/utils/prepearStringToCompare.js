@@ -1,1 +1,0 @@
-export const prepareStringToCompare = (str) => str.trim().replace(/\s+/g, ' ').toLowerCase();

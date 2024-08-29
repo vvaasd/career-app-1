@@ -1,3 +1,1 @@
-# CareerApp 1
-
-Будет выполнен рефакторинг
+# CareerApp 1 (build version)
